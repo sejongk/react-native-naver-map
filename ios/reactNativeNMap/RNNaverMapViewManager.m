@@ -12,6 +12,7 @@
 #import <NMapsMap/NMFNaverMapView.h>
 #import <NMapsMap/NMFCameraUpdate.h>
 #import <NMapsMap/NMFCameraPosition.h>
+#import <NMapsMap/NMFLocationOverlay.h>
  
 
 #import "RCTConvert+NMFMapView.h"
@@ -28,6 +29,8 @@ RCT_EXPORT_MODULE(RNNaverMapView)
 -(UIView *)view
 {
   RNNaverMapView *map = [[RNNaverMapView alloc] initWithFrame:CGRectMake(0, 0, 200, 300)];
+  NMFLocationOverlay *locationOverlay = map.mapView.locationOverlay;
+  locationOverlay.hidden = YES;
   map.bridge = self.bridge;
   return map;
 }

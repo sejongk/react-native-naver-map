@@ -21,6 +21,7 @@ import com.naver.maps.geometry.LatLng;
 import com.naver.maps.geometry.LatLngBounds;
 import com.naver.maps.map.*;
 import com.naver.maps.map.util.FusedLocationSource;
+import com.naver.maps.map.overlay.LocationOverlay;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -135,6 +136,8 @@ public class RNNaverMapView extends MapView implements OnMapReadyCallback, Naver
 
     @Override
     public void onInitialized() {
+        LocationOverlay locationOverlay = naverMap.getLocationOverlay();
+        locationOverlay.setVisible(true);
         emitEvent("onInitialized", null);
     }
 
